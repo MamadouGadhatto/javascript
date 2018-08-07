@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire dynamique</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+          crossorigin="anonymous">
+</head>
+<body class="container-fluid">
+
+<div class="row justify-content-center">
+
+    <div class="col-6">
+        <h1>Formulaire d'inscription</h1>
+        <form>
+
+            <div class="form-group">
+                <label>Nom</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary" id="addTel" type="button">
+                    Ajouter un numéro de téléphone
+                </button>
+            </div>
+
+            <fieldset id="tel-group">
+                <legend>Téléphones</legend>
+            </fieldset>
+
+        </form>
+    </div>
+
+</div>
+
+<!-- Modèle pour la création d'un numéro de tel-->
+<div class="row mb-2" style="display:none" id="telTemplate">
+
+        <input type="tel" name="tel[]" class="form-control col-10">
+
+
+        <button type="button" class="btn btn-danger col-1 offset-1">Del</button>
+
+
+</div>
+
+<script src="lib/jquery-3.3.1.min.js"></script>
+<script>
+
+    $(document).ready(()=>{
+
+        var $telGroup = $("#tel-group");
+        var $btAddTel = $("#addTel");
+
+        //Ajout d'un téléphone
+        $btAddTel.click(function () {
+            $newTel = $("#telTemplate")
+                .clone()
+                .attr("id", "")
+                .attr("style","");
+
+            $newTel.appendTo($telGroup);
+        });
+
+        //Suppression d'un téléphone
+        $telGroup.delegate(".btn-danger","click", function () {
+            $(this).parent().remove();
+        });
+
+    });
+
+</script>
+</body>
+</html>

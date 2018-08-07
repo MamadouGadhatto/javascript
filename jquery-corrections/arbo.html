@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arborescence</title>
+</head>
+<body>
+
+<h1>Jquery</h1>
+<p>jQuery c'est super</p>
+
+<h1>Java</h1>
+<p>Java ça fait mal mais c'est bon</p>
+
+<h1>PHP</h1>
+<p>ça fait du bien mais c'est mal</p>
+
+
+<ul>
+    <li>Test</li>
+    <li>Test2</li>
+    <li><a>Test3</a></li>
+</ul>
+
+<script src="lib/jquery-3.3.1.min.js"></script>
+
+<script>
+    $(document).ready(()=>{
+
+        $li = $("li");
+        $link = $li.filter("a");
+
+        $("h1").click(function(){
+            var $p = $(this).next();
+            var $h1 = $(this);
+
+            $p.toggle(800, function(){
+                if($p.is(":hidden")){
+                    $h1.css("color","white").css("background-color", "red");
+                } else {
+                    $h1.css("background-color","yellow").css("color","black");
+                }
+            });
+
+
+
+
+
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Troll dans la forêt</title>
+</head>
+<body>
+
+<script>
+
+    /* Question initiale*/
+    var intro = "Vous rencontrez un troll dans la forêt\n" +
+        "Que faites-vous\n" +
+        "1: Fuir  2: Combattre  3: Se cacher";
+    var action = prompt(intro);
+
+    var message, choice;
+
+    //Analyse de la réponse
+
+    if(action === "1"){
+        //Fuir
+
+        if(confirm("Etes-vous rapide ?")){
+            message = "Vous vous enfuyez";
+        } else {
+            message = "Le troll vous dévore";
+        }
+
+
+    } else if (action === "2"){
+        //Combattre
+        if(confirm("Etes-vous fort ?")){
+            message = "Vous massacrez le troll";
+        } else {
+            message = "Le troll vous dévore";
+        }
+
+    } else if (action === "3"){
+        //se cacher
+
+        if(confirm("Etes-vous furtif ?")){
+            message = "Vous vous cachez";
+        } else {
+            message = "Le troll vous dévore";
+        }
+
+    } else {
+        //autre
+        message = "Vous devez choisir une des 3 options";
+    }
+
+    alert(message);
+
+</script>
+
+</body>
+</html>

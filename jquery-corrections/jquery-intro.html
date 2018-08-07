@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery intro</title>
+
+</head>
+<body>
+
+<button id="showHide">Afficher/masquer</button>
+
+<button id="increaseFontSize">Augmenter la taille</button>
+<button id="decreaseFontSize">Diminuer la taille</button>
+<button id="resetFontSize">Restaurer la taille</button>
+
+<p>Hello jquery</p>
+<p>Hello Javascript</p>
+<p>Hello Java</p>
+<p>Hello Python</p>
+<p>Hello PHP</p>
+<p>Hello Ruby</p>
+<p>Hello Scala</p>
+
+<script src="lib/jquery-3.3.1.min.js"></script>
+
+<script>
+    $(document).ready(
+        function () {
+            var $body = $("body");
+            var originalSize = $body.css("font-size");
+
+            $("#increaseFontSize").click(()=>{
+               //$("body").css('font-size', '+=5px');
+                let previousSize = $body.css("font-size");
+                let newSize = parseInt(previousSize) *1.1;
+                $body.css("font-size", newSize+"px");
+            });
+
+            $("#decreaseFontSize").click(()=>{
+                //$("body").css('font-size', '+=5px');
+                let previousSize = $body.css("font-size");
+                let newSize = parseInt(previousSize) *.9;
+                $body.css("font-size", newSize+"px");
+            });
+
+            $("#resetFontSize").click(()=>{
+                $body.css("font-size", originalSize);
+            });
+
+            $("#showHide").click(()=>{
+                $p = $("p:even");
+                $p2 = $("p:odd");
+
+                $p2.html( (index, oldValue) => (index+1) + " para  (" + oldValue + ")")
+                    .css("color", "red")
+                    .show(1000);
+
+                $p.hide(1000);
+            });
+
+        }
+    );
+</script>
+</body>
+</html>

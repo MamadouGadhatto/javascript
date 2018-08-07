@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doublons</title>
+</head>
+<body>
+
+<script>
+
+    var fruits = [
+        "pommes", "oranges",
+        "poires","oranges",
+        "pommes", "figues",
+        "poires"
+    ];
+
+    var result = [];
+
+
+    for(let i=0; i< fruits.length; i++){
+        var item = fruits[i];
+        var search = fruits.indexOf(item);
+
+        if(search == i){
+            result.push(item);
+        }
+    }
+
+    console.log(result);
+
+</script>
+
+</body>
+</html>

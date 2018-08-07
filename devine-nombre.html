@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Devine nombre</title>
+</head>
+<body>
+
+<script>
+
+    //Le nombre à deviner
+    var secretNumber;
+     //Le nombre d'essai
+    var tries = 0;
+
+    //Le choix du joueur
+    var guess;
+
+    var won = false;
+
+    var play = true;
+
+    var message;
+
+    //Boucle tant que l'on a pas gagné et que l'on veut continuer à jouer
+    while( ! won && play){
+        //Définition du nombre à deviner lors du premier tour de jeu
+        if(tries == 0){
+            secretNumber = parseInt(Math.random() *100);
+            console.log(secretNumber);
+        }
+
+        //Choix de l'utilisateur
+        guess = parseInt(prompt("Entrez un nombre entre 0 et 100"));
+        //Incrémentation du nombre de tentatives
+        tries++;
+        //Réponse au choix du joueur
+        if(! guess){
+            play = confirm("Saisie incorrecte voulez-vous continuer à jouer");
+            //saute l'itération en cours
+            continue;
+        } else if(guess < 0 || guess > 100){
+            message = "Vous devez saisir un nombre positif entre 0 et 100";
+        } else if(guess == secretNumber){
+            won = true;
+            message = `Vous avez gagné en ${tries} coups`;
+        } else if(guess < secretNumber){
+            message = "Trop petit";
+        } else {
+            message = "Trop grand";
+        }
+
+        //Affichage du message
+        alert(message);
+
+        //Gestion du cas où l'on a gagné
+        if(won){
+            won = false;
+            tries = 0;
+            play = confirm("Voulez vous rejouer ?");
+        }
+    }
+
+</script>
+
+</body>
+</html>

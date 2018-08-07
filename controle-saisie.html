@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contrôle de saisie</title>
+</head>
+<body>
+
+<script>
+    var input;
+    var message= "";
+    var fizzBuzz = false;
+
+    do {
+        input = parseInt(prompt("Veuillez saisir un nombre"));
+    }while(! input)
+
+    if(input %3 == 0){
+        message = "fizz";
+        fizzBuzz = true;
+    }
+
+    if(input %5 == 0){
+        message += "buzz";
+        fizzBuzz = true;
+    }
+
+    if(! fizzBuzz){
+        message = input;
+    }
+
+    alert(message);
+</script>
+
+</body>
+</html>

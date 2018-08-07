@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test âge</title>
+</head>
+<body>
+
+<script>
+    //demande de la saisie de l'âge
+    var age = prompt("Veuillez entrer votre âge");
+
+    //Conversion de l'âge en nombre
+    age = parseInt(age);
+
+    //Validation de la saisie
+    if(! age){
+        console.error("Votre saisie est invalide");
+    } else {
+        //Test de l'âge
+        if(age < 7){
+            console.log("vous êtes trop jeune");
+        } else if(age >= 7 && age <=77){
+            console.log("Vous pouvez lire Tintin")
+        } else {
+            console.log("Vous êtes trop vieux");
+        }
+    }
+</script>
+
+</body>
+</html>

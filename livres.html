@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Livres</title>
+</head>
+<body>
+
+<script src="js-data/livres.js"></script>
+
+<script>
+
+    //Liste des livres dont le prix est inférieur à 20
+    var result = {
+        lessThan20: [],
+        moreThanOneAuthor: [],
+        withBDDTag: [],
+        totalPriceOfComputerBooks: 0
+    };
+
+    for(book of books){
+        //Prix inférieur à 20
+        if(book.price < 20){
+            result.lessThan20.push(book);
+        }
+        //Plu d'un auteur
+        if(book.authors.length >1){
+            result.moreThanOneAuthor.push(book);
+        }
+
+        //Livres qui possèdent le tag BDD
+        if(book.tags.indexOf('Base de données')>=0){
+            result.withBDDTag.push(book);
+        }
+
+        //Total des livres d'informatique
+        if(book.tags.indexOf('Informatique')>=0){
+            result.totalPriceOfComputerBooks += book.price;
+        }
+    }
+
+    console.log(result);
+
+</script>
+
+</body>
+</html>
